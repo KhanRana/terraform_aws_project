@@ -13,3 +13,12 @@ module "security" {
   source = "./modules/security"
   vpc_id = module.vpc.vpc_id
 }
+
+# create instance and attach the security group
+module "smart_home_server" {
+  source          = "./modules/smart_home_server"
+  subnet_id       = module.vpc.public_subnets
+  security_groups = module.security.security_group_ids
+  key_pair        = "MyKeyPair"
+  ec2_name        = ["smart_home_001", "smart_home_002", "smart_home_003"]
+}

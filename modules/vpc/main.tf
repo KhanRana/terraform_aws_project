@@ -7,12 +7,43 @@
 # A route table that can deal with local traffic as well as route to the IGW for any other traffic
 
 resource "aws_vpc" "main" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block = var.cidr_range
+
   enable_dns_hostnames = true
-  enable_dns_support = true
+  enable_dns_support   = true
 
   tags = {
-    Name = "portfolio-vpc"
+    Name = var.vpc_name
   }
 }
 
+# create public subnets
+
+resource "aws_subnet" "public_subnets" {
+  count             = length(var.public_subnets)
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = var.public_subnets[count.index]
+  availability_zone = var.availability_zones[count.index]
+
+  map_public_ip_on_launch = true
+
+  tags = {
+    Name      = format("${var.vpc_name}-public-%s", element(var.availability_zones, count.index))
+    ManagedBy = "Terraform"
+  }
+}
+
+# create private subnets
+resource "aws_subnet" "private_subnets" {
+  count             = length(var.private_subnets)
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = var.private_subnets[count.index]
+  availability_zone = var.availability_zones[count.index]
+
+  map_public_ip_on_launch = false
+
+  tags = {
+    Name      = format("${var.vpc_name}-private-%s", element(var.availability_zones, count.index))
+    ManagedBy = "Terraform"
+  }
+}

@@ -26,7 +26,7 @@ module "smart_home_server" {
 # dynamo data table
 module "dynamo" {
   source = "./modules/dynamo"
- table_name = "lighting"
+ table_name = ["lighting", "heating"]
  attribute_name = "id"
  attribute_type = "N"
  billing_mode = "PROVISIONED"

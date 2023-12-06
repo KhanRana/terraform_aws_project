@@ -1,7 +1,8 @@
 
 
-resource "aws_dynamodb_table" "lights_table" {
-  name           = var.table_name
+resource "aws_dynamodb_table" "dyno_table" {
+  count          = length(var.table_name)
+  name           = var.table_name[count.index]
   billing_mode   = var.billing_mode
   read_capacity  = var.read_capacity
   write_capacity = var.write_capacity

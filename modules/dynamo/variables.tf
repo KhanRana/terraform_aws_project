@@ -1,5 +1,5 @@
 variable "table_name" {
-type = string
+type = list(string)
 }
 
 variable "read_capacity" {

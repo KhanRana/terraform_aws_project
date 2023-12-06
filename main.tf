@@ -34,3 +34,13 @@ module "dynamo" {
  write_capacity= "30"
  hash_key = "id"
 }
+
+# load balancer with three traget groups each containing individual instance
+
+module "load_balancing" {
+  source          = "./modules/load_balancer"
+  vpc_id          = module.vpc.vpc_id
+  ec2_id          = module.smart_home_server.instance_id
+  security_groups = [module.security.security_group_ids]
+  subnets         = module.vpc.public_subnets
+}

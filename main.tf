@@ -22,3 +22,15 @@ module "smart_home_server" {
   key_pair        = "MyKeyPair"
   ec2_name        = ["smart_home_001", "smart_home_002", "smart_home_003"]
 }
+
+# dynamo data table
+module "dynamo" {
+  source = "./modules/dynamo"
+ table_name = "lighting"
+ attribute_name = "id"
+ attribute_type = "N"
+ billing_mode = "PROVISIONED"
+ read_capacity= "30"
+ write_capacity= "30"
+ hash_key = "id"
+}

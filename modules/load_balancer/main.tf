@@ -8,7 +8,7 @@ resource "aws_lb_target_group" "ec2-lb" {
   vpc_id           = var.vpc_id
 
   health_check {
-    path     = "/health-check"
+    path     = "/api/${var.apps[count.index]}/health"
     protocol = "HTTP"
   }
 }

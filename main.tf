@@ -43,4 +43,5 @@ module "load_balancing" {
   ec2_id          = module.smart_home_server.instance_id
   security_groups = [module.security.security_group_ids]
   subnets         = module.vpc.public_subnets
+  apps = ["lights", "heating", "status"]
 }

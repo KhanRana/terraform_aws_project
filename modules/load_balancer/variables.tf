@@ -13,3 +13,7 @@ variable "subnets" {
 variable "security_groups" {
   type = list(string)
 }
+
+variable "apps" {
+  type = list(string)
+}

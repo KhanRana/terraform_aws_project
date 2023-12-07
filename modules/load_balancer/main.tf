@@ -60,7 +60,7 @@ resource "aws_lb_listener_rule" "lights" {
 
   condition {
     path_pattern {
-      values = ["*/api/lights"]
+      values = ["*/api/lights", "*/api/lights/switch", "*/api/lights/health"]
     }
   }
 }
@@ -92,7 +92,7 @@ resource "aws_lb_listener_rule" "status" {
 
   condition {
     path_pattern {
-      values = ["*/api/status"]
+      values = ["*/api/status", "*/api/status/health"]
     }
   }
 }

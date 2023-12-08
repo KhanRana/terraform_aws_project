@@ -1,6 +1,0 @@
-node_modules
-.terraform
-.terraform.lock.hcl
-*.tfvars
-*.tfstate*
-*.pem

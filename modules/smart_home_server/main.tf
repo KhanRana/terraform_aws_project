@@ -1,7 +1,7 @@
 # create ec2 instances 
 resource "aws_instance" "smart_home" {
   count         = length(var.subnet_ids)
-  ami           = var.AMI
+  ami           = var.AMI[count.index]
   instance_type = var.instance_type
   subnet_id     = var.subnet_ids[count.index]
   key_name      = var.key_pair

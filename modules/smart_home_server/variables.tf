@@ -1,6 +1,6 @@
 variable "AMI" {
-    type = string
-    default = "ami-0505148b3591e4c07"
+    type = list(string)
+    # default = "ami-0505148b3591e4c07"
 }
 
 variable "ec2_name" {

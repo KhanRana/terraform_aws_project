@@ -9,6 +9,7 @@ resource "aws_launch_configuration" "ec2_instance" {
   lifecycle {
     create_before_destroy = true
   }
+  
 }
 
 # create auto acaling groups

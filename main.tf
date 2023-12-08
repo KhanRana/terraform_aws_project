@@ -20,6 +20,7 @@ module "smart_home_server" {
   subnet_ids       = module.vpc.public_subnets
   security_groups = [module.security.security_group_ids]
   key_pair        = "MyKeyPair"
+  AMI = ["ami-08c766676481fd5aa", "ami-08aeb32d2c5d96e18", "ami-0bb05632bcd4998a5"]
   ec2_name        = ["smart_home_001", "smart_home_002", "smart_home_003"]
 }
 
@@ -50,7 +51,7 @@ module "load_balancing" {
 module "autoscaling" {
   count = length(module.load_balancing.lb-tg-arn)
   source = "./modules/autoscaling"
-  AMI = ["ami-08c766676481fd5aa", "ami-08aeb32d2c5d96e18", "ami-0bb05632bcd4998a5"]
+  AMI = var.AMI
   min_size = 1
   max_size = 3
   desired_capacity = 1

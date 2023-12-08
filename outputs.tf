@@ -17,5 +17,6 @@ output "ec2_instances" {
 # Dynamo Tables
 output "dynamo_tables" {
   value = module.dynamo.table_name
+  sensitive = true
 }
 

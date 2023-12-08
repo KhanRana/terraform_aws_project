@@ -4,3 +4,4 @@ node_modules
 *.tfvars
 *.tfstate*
 *.pem
+README.md

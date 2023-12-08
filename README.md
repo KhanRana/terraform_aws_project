@@ -13,6 +13,7 @@
 - [Bugs](#bugs)
 - [Acknowledgements](#acknowledgements)
 
+![Project Infrastructure](./documentation/images/graph.png "Terraform Infrastructure")
 
 ## Project Requirements
 This project is a portfolio project for my cloud engineering bootcamp at Northcoders. In this case strudy, the client has asked me to build an infrastructure where they can have their applications running without any interruption. The client has some following requirements.

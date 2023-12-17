@@ -1,6 +1,6 @@
 # Terraform project
 ## Contents
-- [Project Business Requirements](#project-requirements)
+- [Project Requirements](#project-requirements)
     - [VPV](#vpc)
     - [Smart Home Server](#Smart_Home_Server)
     - [Security](#security)
@@ -16,7 +16,7 @@
 ![Project Infrastructure](./documentation/images/graph.png "Terraform Infrastructure")
 
 ## Project Requirements
-This project is a portfolio project for my cloud engineering bootcamp at Northcoders. In this case strudy, the client has asked me to build an infrastructure where they can have their applications running without any interruption. The client has some following requirements.
+This project is a portfolio project for my cloud engineering bootcamp at Northcoders. In this project, we were asked to build an infrastructure where clients can have their applications running without any interruption. The client has some following requirements.
 
 - Be completed using terraform
 - Be a production ready network setup with both public and private subnets
